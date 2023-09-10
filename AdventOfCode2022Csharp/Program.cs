@@ -1,4 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Collections.Generic;
+using System.Linq;
+
 class Solution
 {
     public static void Main(string[] args)
@@ -156,8 +159,16 @@ class Solution
         //create total incrementer
         int total = 0;
 
-        //incr that goes to 3 (0,1,2) and resets for triplets
+        //create triple elf total
+        int sharedTotal = 0;
 
+        //create new array to hold the previous two lines
+        HashSet<char>[] previousTwoLines = new HashSet<char>[2];
+
+        //at 0, set previousTwoLines[0]
+        //at 1, set previousTwoLines[1]
+        //at 2, compare the three ([0],[1], current line)
+        int incr = 0;
 
         while (!sr.EndOfStream)
         {
@@ -189,7 +200,27 @@ class Solution
                     break;
                 }
             }
-            Console.WriteLine();
+
+            //PART 2
+            //every three lines, check what letter is common in all three
+            if (incr + 1 % 3 != 0 || incr == 0)
+            {
+                //assign it to the hashset array
+                previousTwoLines[incr % 2] = line.ToHashSet();
+            }
+            else
+            {
+                //find the intersect of all three lines
+                IEnumerable<char> sharedChar =
+                    (previousTwoLines[0].Intersect(previousTwoLines[1])).Intersect(line.ToHashSet());
+
+                foreach (char c in sharedChar)
+                {
+                    Console.Write(c);
+                }
+                Console.WriteLine();
+            }
+            incr++;
         }
     }
 }
