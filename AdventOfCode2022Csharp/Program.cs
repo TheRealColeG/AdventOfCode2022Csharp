@@ -150,6 +150,46 @@ class Solution
 
     public static void Day3()
     {
-        Console.WriteLine("a".to);
+        //open file
+        StreamReader sr = new StreamReader("../../../day3.txt");
+
+        //create total incrementer
+        int total = 0;
+
+        //incr that goes to 3 (0,1,2) and resets for triplets
+
+
+        while (!sr.EndOfStream)
+        {
+            string line = sr.ReadLine();
+
+            //create two sets for the first half and second half
+            HashSet<char> secondHalf = line.Substring(line.Length / 2).ToHashSet();
+            HashSet<char> firstHalf = line.Substring(0, line.Length / 2).ToHashSet();
+            
+            //compare elements to see which element is present in both
+            foreach (char c in firstHalf)
+            {
+                //means common element in both
+                if (secondHalf.Contains(c))
+                {
+                    //check if it's upper or lowercase
+                    //if upper, subtract 'A', if lower, subtract 'a'
+                    if (c.ToString().ToLower() == c.ToString())
+                    {
+                        //to get the 'priority' where 'a' = 1, 'z' = 26
+                        total += c - 'a' + 1;
+                    }
+                    //char is uppercase
+                    else
+                    {
+                        //to get the 'priority' where 'A' = 27, 'Z' = 52 
+                        total += c - 'A' + 27;
+                    }
+                    break;
+                }
+            }
+            Console.WriteLine();
+        }
     }
 }
