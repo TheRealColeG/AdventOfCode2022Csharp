@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\gordo\\.nuget\\packages\\": {}
+    "C:\\Users\\Cole\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gordo\\source\\repos\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp.csproj",
+      "projectUniqueName": "C:\\Users\\Cole\\source\\repos\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp.csproj",
       "projectName": "AdventOfCode2022Csharp",
-      "projectPath": "C:\\Users\\gordo\\source\\repos\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp.csproj",
-      "packagesPath": "C:\\Users\\gordo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gordo\\source\\repos\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp\\obj\\",
+      "projectPath": "C:\\Users\\Cole\\source\\repos\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp.csproj",
+      "packagesPath": "C:\\Users\\Cole\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Cole\\source\\repos\\AdventOfCode2022Csharp\\AdventOfCode2022Csharp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\gordo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Cole\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

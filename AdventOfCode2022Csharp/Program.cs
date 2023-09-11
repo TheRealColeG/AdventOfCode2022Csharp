@@ -8,7 +8,14 @@ class Solution
     {
         //Day1();
         //Day2();
-        Day3();
+        //Day3();
+        //Day4();
+        Day5();
+        truckTour(new List<List<int>>(){ 
+            new List<int>(){ 1, 5},
+            new List<int>(){ 10, 3},
+            new List<int>(){ 3, 4} 
+        });
     }
 
     public static void Day1()
@@ -203,7 +210,7 @@ class Solution
 
             //PART 2
             //every three lines, check what letter is common in all three
-            if (incr + 1 % 3 != 0 || incr == 0)
+            if ((incr + 1) % 3 != 0 || incr == 0)
             {
                 //assign it to the hashset array
                 previousTwoLines[incr % 2] = line.ToHashSet();
@@ -216,11 +223,88 @@ class Solution
 
                 foreach (char c in sharedChar)
                 {
-                    Console.Write(c);
+                    if (c.ToString().ToLower() == c.ToString())
+                    {
+                        //to get the 'priority' where 'a' = 1, 'z' = 26
+                        sharedTotal += c - 'a' + 1;
+                    }
+                    //char is uppercase
+                    else
+                    {
+                        //to get the 'priority' where 'A' = 27, 'Z' = 52 
+                        sharedTotal += c - 'A' + 27;
+                    }
+                    break;
                 }
-                Console.WriteLine();
             }
             incr++;
         }
+        Console.WriteLine(total);
+        Console.WriteLine(sharedTotal);
+    }
+
+    public static void Day4()
+    {
+        //open file
+        StreamReader sr = new StreamReader("../../../day4.txt");
+
+        //increment if wholly contained
+        int whollyContained = 0;
+        int semiContained = 0;
+
+        while (!sr.EndOfStream)
+        {
+            string line = sr.ReadLine();
+
+            //split elves
+            string[] eachElf = line.Split(',');
+
+            //to save myself headache
+            if (eachElf.Length < 2)
+            {
+                Console.WriteLine(eachElf[0]);
+                continue;
+            }
+
+            //split elf's zones
+            string[] elf1Zones = eachElf[0].Split('-');
+            string[] elf2Zones = eachElf[1].Split('-');
+
+            int elf1zone1; int elf1zone2; int elf2zone1; int elf2zone2;
+            bool success = int.TryParse(elf1Zones[0].Trim(), out elf1zone1);
+            success = int.TryParse(elf1Zones[1].Trim(), out elf1zone2) && success;
+            success = int.TryParse(elf2Zones[0].Trim(), out elf2zone1) && success;
+            success = int.TryParse(elf2Zones[1].Trim(), out elf2zone2) && success;
+
+            if (!success) return;
+
+            //PART 1
+            if (elf2zone1 <= elf1zone1 && elf1zone2 <= elf2zone2)
+            {
+                whollyContained++;
+            }
+            else if (elf1zone1 <= elf2zone1 && elf2zone2 <= elf1zone2)
+            {
+                whollyContained++;
+            }
+
+            //PART 2 - if ANY zones are contained
+            if (elf1zone2 >= elf2zone1 && elf2zone2 >= elf1zone2)
+            {
+                semiContained++;
+            }
+            else if (elf2zone2 >= elf1zone1 && elf1zone2 >= elf2zone2)
+            {
+                semiContained++;
+            }
+
+        }
+        Console.WriteLine(whollyContained);
+        Console.WriteLine(semiContained);
+    }
+
+    public static void Day5()
+    {
+        
     }
 }
